@@ -1,3 +1,6 @@
+@import "../sass/fonts.scss";
+@import "../sass/animation.scss";
+
 /* HEADER */
 
 .header {
@@ -15,6 +18,9 @@
         display: flex;
         align-items: center;
         margin-left: 140px;
+        &:hover{
+            animation: $animation-scale;
+        }
     }
 
     .menu {
@@ -33,12 +39,13 @@
         display: flex;
         text-decoration: none;
         text-transform: uppercase;
-        font-family: 'Space Mono', monospace;
+        font-family: 'Space Mono', sans-serif;
         font-size: 16px;
         width: 100%;
         color: black;
         &:hover {
             color: #E00000;
+            animation: $animation-fade;
         }
         &:visited {
             text-decoration: none;
@@ -64,12 +71,13 @@
         display: flex;
         text-decoration: none;
         text-transform: uppercase;
-        font-family: 'Space Mono', monospace;
+        font-family: 'Space Mono', sans-serif;
         font-size: 16px;
         width: 100%;
         color: black;
         &:hover {
             color: #E00000;
+            animation: $animation-fade;
         }
         &:visited {
             text-decoration: none;

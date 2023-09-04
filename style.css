@@ -1,3 +1,34 @@
+@font-face {
+  font-family: "Space Mono";
+  src: url("fonts/SpaceMono-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+body {
+  font-family: "Space Mono", sans-serif;
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scale {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 /* HEADER */
 .header {
   display: flex;
@@ -15,6 +46,9 @@
   align-items: center;
   margin-left: 140px;
 }
+.navbar .logo:hover {
+  animation: scale 3s ease-in-out alternate 1;
+}
 .navbar .menu {
   display: flex;
   align-items: center;
@@ -30,13 +64,14 @@
   display: flex;
   text-decoration: none;
   text-transform: uppercase;
-  font-family: "Space Mono", monospace;
+  font-family: "Space Mono", sans-serif;
   font-size: 16px;
   width: 100%;
   color: black;
 }
 .navbar li a:hover {
   color: #E00000;
+  animation: fade 1s ease-in-out forwards;
 }
 .navbar li a:visited {
   text-decoration: none;
@@ -58,13 +93,14 @@
   display: flex;
   text-decoration: none;
   text-transform: uppercase;
-  font-family: "Space Mono", monospace;
+  font-family: "Space Mono", sans-serif;
   font-size: 16px;
   width: 100%;
   color: black;
 }
 .menu-footer li a:hover {
   color: #E00000;
+  animation: fade 1s ease-in-out forwards;
 }
 .menu-footer li a:visited {
   text-decoration: none;
