@@ -1,0 +1,73 @@
+/* HEADER */
+.header {
+  display: flex;
+  height: 80px;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  margin-left: 140px;
+}
+.navbar .menu {
+  display: flex;
+  align-items: center;
+  margin-right: 140px;
+}
+.navbar ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 45px;
+}
+.navbar li a {
+  display: flex;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Space Mono", monospace;
+  font-size: 16px;
+  width: 100%;
+  color: black;
+}
+.navbar li a:hover {
+  color: #E00000;
+}
+.navbar li a:visited {
+  text-decoration: none;
+}
+
+/* FOOTER */
+.menu-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-footer ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 45px;
+}
+.menu-footer li a {
+  display: flex;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Space Mono", monospace;
+  font-size: 16px;
+  width: 100%;
+  color: black;
+}
+.menu-footer li a:hover {
+  color: #E00000;
+}
+.menu-footer li a:visited {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */
