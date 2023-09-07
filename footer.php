@@ -8,5 +8,9 @@
         ?>
     </div>
 </div>
+
+<!-- appel de la modale de contact -->
+<?php get_template_part( 'templates-part/modale_contact' ); ?>
+
 </body>
 </html>

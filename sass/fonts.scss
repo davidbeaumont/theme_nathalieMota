@@ -4,6 +4,16 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Poppins';
+    src: url('fonts/Poppins-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
 body {
     font-family: 'Space Mono', sans-serif;
+}
+
+.modal-form {
+    font-family: 'Poppins', sans-serif;
 }
