@@ -134,6 +134,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  box-shadow: 0px 5px 5px rgb(242, 242, 242);
 }
 .navbar .logo {
   display: flex;

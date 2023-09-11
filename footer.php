@@ -10,7 +10,7 @@
 </div>
 
 <!-- appel de la modale de contact -->
-<?php get_template_part( 'templates-part/modale_contact' ); ?>
+<?php get_template_part( 'template-parts/modale_contact' ); ?>
 
 </body>
 </html>
