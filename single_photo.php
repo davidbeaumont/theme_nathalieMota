@@ -65,7 +65,6 @@ while ( have_posts() ) :
             'post_type' => 'photo',
             'order' => 'ASC', // ASC ou DESC 
             'orderby' => 'date', // title, date, comment_count…
-            'posts_per_page' => 1
         );
         // On exécute la WP Query
         $my_query = new WP_Query( $args );
@@ -94,7 +93,7 @@ while ( have_posts() ) :
             <div class="site__navigation__prev">
             <div class="nav-thumbnail"><?php echo $previous_post_thumbnail; ?></div>
                 <a class="lien-nav" href="<?php echo get_permalink($previous_post->ID); ?>">
-                <img src="../../wp-content/themes/theme_nathalieMota/img/prev.png" alt="Article précédent" width="25"/>
+                <img src="../../wp-content/themes/theme_nathalieMota/img/prev.png" alt="Article précédent"/>
                 </a>
             </div>
         <?php endif; ?>
@@ -105,7 +104,7 @@ while ( have_posts() ) :
             <div class="site__navigation__next">
             <div class="nav-thumbnail"><?php echo $next_post_thumbnail; ?></div>
                 <a class="lien-nav" href="<?php echo get_permalink($next_post->ID); ?>">
-                <img src="../../wp-content/themes/theme_nathalieMota/img/next.png" alt="Article suivant" width="25"/>
+                <img src="../../wp-content/themes/theme_nathalieMota/img/next.png" alt="Article suivant"/>
                 </a>
             </div>
         </div>
@@ -114,7 +113,14 @@ while ( have_posts() ) :
 
         </div>
     </div>
-<?php    
+    <div class="photos_apparentees">
+    <h2>vous aimerez aussi</h2>
+
+        <?php get_template_part('template-parts/content/photo_block');?>
+
+</div>
+<?php 
+
 endwhile; // End of the loop.
 
 get_footer();
