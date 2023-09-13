@@ -15,36 +15,106 @@ get_header();
 while ( have_posts() ) :
 	the_post();
 
-	get_template_part( 'template-parts/content/content-single' );
+    // On récupère les champs ACF nécessaires
+    $reference=get_field('reference');
+    $type=get_field('type');
+    $annee=get_field('annee');
+    
+    // On récupère les taxonomies nécessaires
+    $categories = get_the_term_list(get_the_ID(), 'categorie', '', ', ');
+    $formats = get_the_term_list(get_the_ID(), 'format', '', ', ');
+    ?>
+    
+    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    
+        <header class="entry-header alignwide">
+            <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+            <ul>
+                <li>référence : <?php echo $reference; ?></li>
+                <li>catégorie : <?php echo $categories; ?></li>
+                <li>format : <?php echo $formats; ?></li>
+                <li>type : <?php echo $type; ?></li>
+                <li>année : <?php echo $annee; ?></li>
+            </ul>
+        </header><!-- .entry-header -->
+    
+        <div class="entry-content">
+            <?php
+            the_content();
+    
+            ?>
+        </div><!-- .entry-content -->
+    
+    </article><!-- #post-<?php the_ID(); ?> -->
+    
+    <div class="contact_nav">
+        <div class="entry-contact">
+            <p>Cette photo vous intéresse ?</p>
+            <input class="myBtn" type="submit" value="Contact">
+                <script>
+                    $(document).ready(function(){
+                        $(".refPhoto").val("<?php echo $reference; ?>");
+                    });
+                </script>
+            </input>
+        </div>
+        <div class="site__navigation">
+        <?php 
+        // On définit les arguments pour définir ce que l'on souhaite récupérer
+        $args = array(
+            'post_type' => 'photo',
+            'order' => 'ASC', // ASC ou DESC 
+            'orderby' => 'date', // title, date, comment_count…
+            'posts_per_page' => 1
+        );
+        // On exécute la WP Query
+        $my_query = new WP_Query( $args );
 
-	if ( is_attachment() ) {
-		// Parent post navigation.
-		the_post_navigation(
-			array(
-				/* translators: %s: Parent post link. */
-				'prev_text' => sprintf( __( '<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'theme_nathalieMota' ), '%title' ),
-			)
-		);
-	}
+        // On lance la boucle !
+        if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post();
+            
+            // the_title();
+            // the_content();
+            // the_post_thumbnail('thumbnail');
 
-	// If comments are open or there is at least one comment, load up the comment template.
-	if ( comments_open() || get_comments_number() ) {
-		comments_template();
-	}
+        endwhile;
+        endif;
 
-	// Previous/next post navigation.
-	$twentytwentyone_next = is_rtl() ? twenty_twenty_one_get_icon_svg( 'ui', 'arrow_left' ) : twenty_twenty_one_get_icon_svg( 'ui', 'arrow_right' );
-	$twentytwentyone_prev = is_rtl() ? twenty_twenty_one_get_icon_svg( 'ui', 'arrow_right' ) : twenty_twenty_one_get_icon_svg( 'ui', 'arrow_left' );
+        // On réinitialise à la requête principale (important)
+        wp_reset_postdata();
 
-	$twentytwentyone_next_label     = esc_html__( 'Next post', 'twentytwentyone' );
-	$twentytwentyone_previous_label = esc_html__( 'Previous post', 'twentytwentyone' );
+        // On affiche les éléments de navigation
+        $previous_post = get_previous_post();
+        $next_post = get_next_post();
 
-	the_post_navigation(
-		array(
-			'next_text' => '<p class="meta-nav">' . $twentytwentyone_next_label . $twentytwentyone_next . '</p><p class="post-title">%title</p>',
-			'prev_text' => '<p class="meta-nav">' . $twentytwentyone_prev . $twentytwentyone_previous_label . '</p><p class="post-title">%title</p>',
-		)
-	);
+        if (!empty($previous_post)) :
+            $previous_post_thumbnail = get_the_post_thumbnail($previous_post->ID, 'thumbnail');
+        ?>
+        <div class="nav__prev__next">
+            <div class="site__navigation__prev">
+            <div class="nav-thumbnail"><?php echo $previous_post_thumbnail; ?></div>
+                <a class="lien-nav" href="<?php echo get_permalink($previous_post->ID); ?>">
+                <img src="../../wp-content/themes/theme_nathalieMota/img/prev.png" alt="Article précédent" width="25"/>
+                </a>
+            </div>
+        <?php endif; ?>
+
+        <?php if (!empty($next_post)) :
+            $next_post_thumbnail = get_the_post_thumbnail($next_post->ID, 'thumbnail');
+        ?>
+            <div class="site__navigation__next">
+            <div class="nav-thumbnail"><?php echo $next_post_thumbnail; ?></div>
+                <a class="lien-nav" href="<?php echo get_permalink($next_post->ID); ?>">
+                <img src="../../wp-content/themes/theme_nathalieMota/img/next.png" alt="Article suivant" width="25"/>
+                </a>
+            </div>
+        </div>
+        <?php endif; ?>
+
+
+        </div>
+    </div>
+<?php    
 endwhile; // End of the loop.
 
 get_footer();

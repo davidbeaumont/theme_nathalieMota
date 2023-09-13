@@ -1,15 +1,20 @@
 @import "../sass/fonts.scss";
 @import "../sass/animation.scss";
 @import "../sass/modale.scss";
+@import "../sass/single_photo.scss";
+
+html {
+    max-width: 1440px;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 /* HEADER */
 
 .header {
     display: flex;
     height: 80px;
-
 }
-
 .navbar {
     display: flex;
     flex-direction: row;
@@ -19,23 +24,23 @@
     .logo {
         display: flex;
         align-items: center;
-        margin-left: 140px;
+        margin-left: 10%;
         &:hover{
             animation: $animation-scale;
         }
     }
-
     .menu {
         display: flex;
         align-items: center;
-        margin-right: 140px;
+        margin: 0 10% 0 0;
+        padding: 0;
+        white-space: nowrap;
+        gap: 45px;
     }
-
     ul {
         display: flex;
         flex-direction: row;
         list-style-type: none;
-        gap: 45px;
     }
     li a {
         display: flex;
@@ -54,8 +59,6 @@
         }
     }
 }
-
-
 
 /* FOOTER */
 

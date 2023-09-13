@@ -17,8 +17,8 @@
     background-color: #fefefe;
     margin: 5% auto; /* 5% from the top and centered */
     border: 5px solid black;
-    max-width: 597px;
-    max-height: 769px;
+    width: 597px;
+    height: 769px;
     animation: $animation-fade-up;
 }
 
@@ -45,7 +45,7 @@
     }
     textarea {
         border-radius: 10px;
-        border: 1px solid #B8BBC2;
+        width: 321px;
         height: 180px;
     }
 }
