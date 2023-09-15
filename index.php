@@ -28,6 +28,7 @@
     </div>
     <div class="titre-header">
         <!--<h1>Photographe event</h1> -->
+        
     </div>
 </article>
 <?php get_footer(); ?>
