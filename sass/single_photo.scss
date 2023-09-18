@@ -1,4 +1,4 @@
-article {
+.single_photo {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -63,7 +63,9 @@ article {
         background-color: #D8D8D8;
         border-radius: 5px;
         &:hover {
-            background-color: #c4c4c4;
+            color: white;
+            background-color: black;
+            transition: 1s ease-in-out;
         }
     }
 }
@@ -138,7 +140,9 @@ article {
         background-color: #D8D8D8;
         border-radius: 5px;
         &:hover {
-            background-color: #c4c4c4;
+            color: white;
+            background-color: black;
+            transition: 1s ease-in-out;
         }
     }
     .photo_block {

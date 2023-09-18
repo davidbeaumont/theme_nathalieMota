@@ -53,8 +53,7 @@ html {
         width: 100%;
         color: black;
         &:hover {
-            color: #E00000;
-            animation: $animation-fade;
+            font-weight: bold;
         }
         &:visited {
             text-decoration: none;
@@ -85,8 +84,7 @@ html {
         width: 100%;
         color: black;
         &:hover {
-            color: #E00000;
-            animation: $animation-fade;
+            font-weight: bold;
         }
         &:visited {
             text-decoration: none;
