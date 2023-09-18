@@ -36,3 +36,40 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+
+/* GESTION LOAD-MORE */
+
+jQuery(function($) {
+    var page = 2; // Numéro de page initial
+    var canLoad = true; // Variable pour empêcher le chargement excessif
+
+    $('#load-more-button').click(function(e) {
+        e.preventDefault();
+
+        if (!canLoad) {
+            return;
+        }
+
+        var $loadMoreButton = $('#load-more-button'); // Stockez le bouton dans une variable
+
+        $.ajax({
+            url: load_more_params.ajaxurl, // Utilisation de la variable ajaxurl
+            type: 'POST',
+            data: {
+                action: 'load_more_posts',
+                page: page,
+            },
+            success: function(response) {
+                if (response) {
+                    $('.additional-articles').append(response);
+                    page++;
+                } else {
+                    canLoad = false;
+                    $loadMoreButton.hide(); // Masquez le bouton lorsque vous ne pouvez plus charger davantage d'articles
+                }
+            },
+        });
+    });
+});
+

@@ -34,4 +34,32 @@ h1 {
     white-space: nowrap;
 } */
 
-
+#load-more-button {
+    display: flex;
+    justify-content: center;
+    font-family: 'Space Mono', sans-serif;
+    border: none;
+    width: 40%;
+    height: 50px;
+    cursor: pointer;
+    background-color: #D8D8D8;
+    border-radius: 5px;
+    &:hover {
+        color: white;
+        background-color: black;
+        transition: 1s ease-in-out;
+    }
+}
+.additional-articles {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    img {
+        max-width: 564px;
+        height: 495px;
+        object-fit: cover;
+        padding: 10px;
+    }
+}

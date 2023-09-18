@@ -45,8 +45,9 @@
                 'post_type' => 'photo',
                 'order' => 'DESC', // ASC ou DESC 
                 'orderby' => 'date', // title, date, comment_count…
-                'posts_per_page' => 12,
+                'posts_per_page' => 8,
             );
+            
             // On exécute la WP Query
             $my_query = new WP_Query( $args );
 
@@ -62,7 +63,9 @@
             wp_reset_postdata();
             ?>
         </div>
-        <input class="" type="submit" value="Charger plus"> 
+        <div class="additional-articles"></div>
+        <input id="load-more-button" type="submit" value="Charger plus">
+        </input>
 
     </div>
 </article>
