@@ -62,7 +62,7 @@ jQuery(function($) {
             },
             success: function(response) {
                 if (response) {
-                    $('.additional-articles').append(response);
+                    $('.add_photos_list').append(response);
                     page++;
                 } else {
                     canLoad = false;
@@ -72,4 +72,3 @@ jQuery(function($) {
         });
     });
 });
-

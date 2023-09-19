@@ -85,44 +85,48 @@ $formats = get_the_term_list(get_the_ID(), 'format', '', ', ');
 
     </div>
 </div>
-<div class="photos_apparentees">
-<h2>vous aimerez aussi</h2>
-    <div class="photo_block">
-    <?php 
-    // Récupérer la catégorie de la photo actuellement affichée
-    $current_category = implode(', ', wp_get_post_terms(get_the_ID(), 'categorie', array('fields' => 'names')));
+<div class="section_photos">
+<h3>vous aimerez aussi</h2>
+    <div class="photos_list">
+        <?php 
+        // Récupérer la catégorie de la photo actuellement affichée
+        $current_category = implode(', ', wp_get_post_terms(get_the_ID(), 'categorie', array('fields' => 'names')));
+            
+        // Obtenez l'ID du post actuel
+        $current_post_id = get_the_ID();
         
-    // Obtenez l'ID du post actuel
-    $current_post_id = get_the_ID();
-    
-    // On définit les arguments pour définir ce que l'on souhaite récupérer
-    $args = array(
-        'post_type' => 'photo',
-        'order' => 'ASC', // ASC ou DESC 
-        'orderby' => 'date', // title, date, comment_count…
-        'categorie' => $current_category,
-        'posts_per_page' => 2,
-        'post__not_in' => array($current_post_id), // Exclure le post actuel de la liste
-    );
-    // On exécute la WP Query
-    $my_query = new WP_Query( $args );
-
-    // On lance la boucle !
-    if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post();
+         // On définit les arguments pour définir ce que l'on souhaite récupérer
+        $args = array(
+            'post_type' => 'photo',
+            'order' => 'ASC', // ASC ou DESC 
+            'orderby' => 'date', // title, date, comment_count…
+            'categorie' => $current_category,
+            'posts_per_page' => 2,
+            'post__not_in' => array($current_post_id), // Exclure le post actuel de la liste
+        );
         
-        the_content();
+        // On exécute la WP Query
+        $my_query = new WP_Query( $args );
 
-    endwhile;
-    endif;
+        // On lance la boucle !
+        if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post();
+            
+            get_template_part( 'template-parts/content/photo_block' );
 
-    // On réinitialise à la requête principale (important)
-    wp_reset_postdata();
-    ?>
+        endwhile;
+        endif;
 
+        // On réinitialise à la requête principale (important)
+        wp_reset_postdata();
+        ?>
     </div>
-    
-    <input class="" type="submit" value="Toutes les photos">
-
+    <div class="add_photos_list"></div>
+    <input
+        id="all-photos-button" 
+        type="submit"
+        onclick="window.location.href ='../../index.php/#all-photos';"
+        value="Toutes les photos"
+    />
 </div>
 <?php 
 

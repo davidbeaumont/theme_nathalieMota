@@ -31,8 +31,8 @@
     </div>
 </header>
 <article>
-    <div class="photos_apparentees">
-        <div class="photo_block">
+    <div id="all-photos" class="section_photos">
+        <div class="photos_list">
             <?php 
             // Récupérer la catégorie de la photo actuellement affichée
             $current_category = implode(', ', wp_get_post_terms(get_the_ID(), 'categorie', array('fields' => 'names')));
@@ -54,7 +54,7 @@
             // On lance la boucle !
             if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post();
                 
-                the_content();
+                get_template_part( 'template-parts/content/photo_block' );
 
             endwhile;
             endif;
@@ -63,10 +63,8 @@
             wp_reset_postdata();
             ?>
         </div>
-        <div class="additional-articles"></div>
+        <div class="add_photos_list"></div>
         <input id="load-more-button" type="submit" value="Charger plus">
-        </input>
-
     </div>
 </article>
 <?php get_footer(); ?>
