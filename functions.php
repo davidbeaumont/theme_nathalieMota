@@ -51,7 +51,7 @@ function load_more_posts() {
     // Déclaration de la variable $query ici
     $args = array(
         'post_type' => 'photo',
-        'order' => 'DESC',
+        'order' => $selected_order,
         'orderby' => 'date',
         'posts_per_page' => 8,
         'offset' => ($page-1)*8,

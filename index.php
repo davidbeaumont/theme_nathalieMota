@@ -32,6 +32,9 @@
 </header>
 <article>
     <div id="all-photos" class="section_photos">
+
+        <?php get_template_part( 'template-parts/content/selectors' )?>
+        
         <div class="photos_list">
             <?php 
             // Récupérer la catégorie de la photo actuellement affichée

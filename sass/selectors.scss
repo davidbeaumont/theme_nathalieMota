@@ -1,0 +1,22 @@
+.selectors {
+    display: flex;
+    margin: 40px 0;
+    select {
+      width: 260px;
+      height: 42px;
+      border-radius: 8px;
+      padding: 10px;
+      cursor: pointer;
+      }
+}
+.select-gauche {
+    width: 50%;
+}
+.select-droit {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+  
+
+
