@@ -280,7 +280,7 @@ select,
   position: relative;
 }
 .hero-header-random figure {
-  width: 100%;
+  width: 1440px;
   height: 962px;
 }
 .hero-header-random figure img {

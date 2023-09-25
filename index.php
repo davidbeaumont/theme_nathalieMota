@@ -37,18 +37,13 @@
         
         <div class="photos_list">
             <?php 
-            // Récupérer la catégorie de la photo actuellement affichée
-            $current_category = implode(', ', wp_get_post_terms(get_the_ID(), 'categorie', array('fields' => 'names')));
-                
-            // Obtenez l'ID du post actuel
-            $current_post_id = get_the_ID();
-            
+
             // On définit les arguments pour définir ce que l'on souhaite récupérer
             $args = array(
                 'post_type' => 'photo',
                 'order' => 'DESC', // ASC ou DESC 
                 'orderby' => 'date', // title, date, comment_count…
-                'posts_per_page' => 8,
+                'posts_per_page' => 12,
             );
             
             // On exécute la WP Query
@@ -66,7 +61,6 @@
             wp_reset_postdata();
             ?>
         </div>
-        <div class="add_photos_list"></div>
         <input id="load-more-button" type="submit" value="Charger plus">
     </div>
 </article>

@@ -12,7 +12,7 @@
             }
             ?>
         </select>
-        <select name="formats" id="select_formats">
+        <select name="formats" class="select_formats">
             <option value="">FORMATS</option>
             <?php
             // Récupérez les termes de votre taxonomie
@@ -26,7 +26,7 @@
         </select>
     </div>
     <div class="select-droit">
-        <select name="tri" id="select_tri">
+        <select name="tri" class="select_tri">
             <option value="">TRIER PAR</option>
             <option value="asc">Ordre Croissant</option>
             <option value="desc">Ordre Décroissant</option>

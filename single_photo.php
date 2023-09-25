@@ -98,8 +98,7 @@ $formats = get_the_term_list(get_the_ID(), 'format', '', ', ');
          // On définit les arguments pour définir ce que l'on souhaite récupérer
         $args = array(
             'post_type' => 'photo',
-            'order' => 'ASC', // ASC ou DESC 
-            'orderby' => 'date', // title, date, comment_count…
+            'orderby' => 'rand', 
             'categorie' => $current_category,
             'posts_per_page' => 2,
             'post__not_in' => array($current_post_id), // Exclure le post actuel de la liste

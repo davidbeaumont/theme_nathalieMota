@@ -62,7 +62,7 @@ jQuery(function($) {
             },
             success: function(response) {
                 if (response) {
-                    $('.add_photos_list').append(response);
+                    $('.photos_list').append(response);
                     page++;
                 } else {
                     canLoad = false;
@@ -72,3 +72,67 @@ jQuery(function($) {
         });
     });
 });
+
+
+
+/* GESTION FILTRES PHOTOS 
+
+jQuery(document).ready(function ($) {
+    var page = 1; // Initialisez la variable page à 1
+
+    $(".selectors select").on("change", function () {
+        // Récupérez les valeurs des filtres
+        var categorie = $(".select_categories").val();
+        var format = $(".select_formats").val();
+        var order = $(".select_tri").val();
+
+        // Réinitialisez la page à 1 lors du changement de filtres
+        page = 1;
+
+        // Envoyez une requête AJAX
+        $.ajax({
+            url: load_more_params.ajaxurl, // Utilisation de la variable ajaxurl
+            type: "POST",
+            data: {
+                action: "filter_photos",
+                categorie: categorie,
+                format: format,
+                order: order,
+                page: page,
+            },
+            success: function (response) {
+                $(".add_photos_list").html(response); // Remplacez le contenu existant par les nouvelles photos
+            },
+        });
+    });
+
+    $("#load-more-button").on("click", function () {
+        // Incrémentez la page pour charger plus de photos
+        page++;
+
+        // Récupérez les valeurs actuelles des filtres
+        var categorie = $(".select_categories").val();
+        var format = $(".select_formats").val();
+        var order = $(".select_tri").val();
+
+        // Envoyez une requête AJAX pour charger plus de photos
+        $.ajax({
+            url: load_more_params.ajaxurl, // Utilisation de la variable ajaxurl
+            type: "POST",
+            data: {
+                action: "filter_photos",
+                categorie: categorie,
+                format: format,
+                order: order,
+                page: page,
+            },
+            success: function (response) {
+                if (response) {
+                    $(".add_photos_list").append(response); // Ajoutez les nouvelles photos à la liste existante
+                } else {
+                    $("#load-more-button").hide(); // Masquez le bouton s'il n'y a plus de photos à charger
+                }
+            },
+        });
+    });
+}); */
