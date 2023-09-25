@@ -1,3 +1,5 @@
+@import "../sass/colors.scss";
+
 .single_photo {
     display: flex;
     justify-content: space-between;
@@ -28,7 +30,7 @@
         }
     }
     a:hover {
-        color: #E00000;
+        color: $rouge;
     }
 }
 .entry-title-photo {
@@ -131,22 +133,4 @@
         margin: 60px 0;
     }
 }
-.photos_list {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-   
-    .photo_block {
-        display: flex;
-        width: 49%;
-        height: 495px;
 
-        img {
-            max-width: 100%;
-            height: 495px;
-            object-fit: cover;
-        }
-    }
-}

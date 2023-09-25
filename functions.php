@@ -76,7 +76,7 @@ add_action('wp_ajax_load_more_posts', 'load_more_posts');
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
 
 
-/* GESTION FILTRES PHOTOS 
+/* GESTION FILTRES PHOTOS */
 
 function filter_photos() {
     $categorie = $_POST['categorie'];
@@ -87,7 +87,7 @@ function filter_photos() {
     $args = array(
         'post_type' => 'photo',
         'posts_per_page' => 12,
-        'paged' => $page, // Utilisez la pagination pour charger la page suivante
+        'paged' => $page,
         'orderby' => 'date',
         'order' => ($order === 'asc') ? 'ASC' : 'DESC',
         'tax_query' => array(
@@ -110,8 +110,7 @@ function filter_photos() {
     if ($query->have_posts()) :
         while ($query->have_posts()) : $query->the_post();
             // Générez le contenu HTML des photos ici
-            // Utilisez les balises <figure> par exemple
-            the_content();
+            get_template_part( 'template-parts/content/photo_block' );
             
         endwhile;
         wp_reset_postdata();
@@ -122,4 +121,3 @@ function filter_photos() {
 
 add_action('wp_ajax_filter_photos', 'filter_photos');
 add_action('wp_ajax_nopriv_filter_photos', 'filter_photos');
-*/

@@ -5,6 +5,8 @@
             <?php
             // Récupérez les termes de votre taxonomie
             $terms = get_terms('categorie'); // Remplacez 'votre_taxonomie' par le nom de votre taxonomie
+            
+            echo '<option value="all">Tous</option>';
 
             // Parcourez les termes et créez une option pour chaque terme
             foreach ($terms as $term) {

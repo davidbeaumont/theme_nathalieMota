@@ -75,21 +75,21 @@ jQuery(function($) {
 
 
 
-/* GESTION FILTRES PHOTOS 
+/* GESTION FILTRES PHOTOS */
 
 jQuery(document).ready(function ($) {
-    var page = 1; // Initialisez la variable page à 1
+    var page = 1; // Initialise la variable page à 1
 
     $(".selectors select").on("change", function () {
-        // Récupérez les valeurs des filtres
+        // Récupére les valeurs des filtres
         var categorie = $(".select_categories").val();
         var format = $(".select_formats").val();
         var order = $(".select_tri").val();
 
-        // Réinitialisez la page à 1 lors du changement de filtres
+        // Réinitialise la page à 1 lors du changement de filtres
         page = 1;
 
-        // Envoyez une requête AJAX
+        // Envoi d'une requête AJAX
         $.ajax({
             url: load_more_params.ajaxurl, // Utilisation de la variable ajaxurl
             type: "POST",
@@ -101,21 +101,21 @@ jQuery(document).ready(function ($) {
                 page: page,
             },
             success: function (response) {
-                $(".add_photos_list").html(response); // Remplacez le contenu existant par les nouvelles photos
+                $(".photos_list").html(response); // Remplace le contenu existant par les nouvelles photos
             },
         });
     });
 
     $("#load-more-button").on("click", function () {
-        // Incrémentez la page pour charger plus de photos
+        // Incrémente la page pour charger plus de photos
         page++;
 
-        // Récupérez les valeurs actuelles des filtres
+        // Récupére les valeurs actuelles des filtres
         var categorie = $(".select_categories").val();
         var format = $(".select_formats").val();
         var order = $(".select_tri").val();
 
-        // Envoyez une requête AJAX pour charger plus de photos
+        // Envoi une requête AJAX pour charger plus de photos
         $.ajax({
             url: load_more_params.ajaxurl, // Utilisation de la variable ajaxurl
             type: "POST",
@@ -128,11 +128,11 @@ jQuery(document).ready(function ($) {
             },
             success: function (response) {
                 if (response) {
-                    $(".add_photos_list").append(response); // Ajoutez les nouvelles photos à la liste existante
+                    $(".photos_list").append(response); // Ajoute les nouvelles photos à la liste existante
                 } else {
-                    $("#load-more-button").hide(); // Masquez le bouton s'il n'y a plus de photos à charger
+                    $("#load-more-button").hide(); // Masque le bouton s'il n'y a plus de photos à charger
                 }
             },
         });
     });
-}); */
+});
