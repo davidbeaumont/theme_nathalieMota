@@ -91,20 +91,26 @@ function filter_photos() {
         'orderby' => 'date',
         'order' => ($order === 'asc') ? 'ASC' : 'DESC',
         'tax_query' => array(
-            'relation' => 'AND',
-            array(
-                'taxonomy' => 'categorie',
-                'field' => 'slug',
-                'terms' => $categorie,
-            ),
-            array(
-                'taxonomy' => 'format',
-                'field' => 'slug',
-                'terms' => $format,
-            ),
+            'relation' => 'OR', // Utilisez OR pour que l'une ou l'autre des conditions soit vraie
         ),
     );
-
+    
+    if (!empty($categorie)) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'categorie',
+            'field' => 'slug',
+            'terms' => $categorie,
+        );
+    }
+    
+    if (!empty($format)) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'format',
+            'field' => 'slug',
+            'terms' => $format,
+        );
+    }
+    
     $query = new WP_Query($args);
 
     if ($query->have_posts()) :

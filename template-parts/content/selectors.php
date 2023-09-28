@@ -1,38 +1,46 @@
 <div class="selectors">
     <div class="select-gauche">
-        <select name="categories" class="select_categories">
-            <option value="">CAT&EacuteGORIES</option>
+        <div name="categories" class="select_categories">
+            <div class="champ" value="">CAT&EacuteGORIES
+                <img class="icon-chevron" src="<?php echo get_template_directory_uri() . './img/down.png'; ?>"
+                alt="Icône chevron bas">
+            </div>
             <?php
             // Récupérez les termes de votre taxonomie
-            $terms = get_terms('categorie'); // Remplacez 'votre_taxonomie' par le nom de votre taxonomie
+            $terms = get_terms('categorie');
             
-            echo '<option value="all">Tous</option>';
-
             // Parcourez les termes et créez une option pour chaque terme
             foreach ($terms as $term) {
-                echo '<option value="' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</option>';
+                echo '<div class="options hidden" value="'.esc_html($term->name).'">'.esc_html($term->name).'</div>';
             }
             ?>
-        </select>
-        <select name="formats" class="select_formats">
-            <option value="">FORMATS</option>
+        </div>
+
+        <div name="formats" class="select_formats">
+            <div class="champ" value="">FORMATS
+                <img class="icon-chevron" src="<?php echo get_template_directory_uri() . './img/down.png'; ?>"
+                alt="Icône chevron bas">
+            </div>
             <?php
             // Récupérez les termes de votre taxonomie
-            $terms = get_terms('format'); // Remplacez 'votre_taxonomie' par le nom de votre taxonomie
+            $terms = get_terms('format');
 
             // Parcourez les termes et créez une option pour chaque terme
             foreach ($terms as $term) {
-                echo '<option value="' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</option>';
+                echo '<div class="options hidden">'.esc_html($term->name).'</div>';
             }
             ?>
-        </select>
+        </div>
     </div>
     <div class="select-droit">
-        <select name="tri" class="select_tri">
-            <option value="">TRIER PAR</option>
-            <option value="asc">Ordre Croissant</option>
-            <option value="desc">Ordre Décroissant</option>
-        </select>
+        <div name="tri" class="select_tri">
+            <div class="champ" value="">TRIER PAR
+                <img class="icon-chevron"
+                src="<?php echo get_template_directory_uri() . './img/down.png'; ?>"
+                alt="Icône chevron bas">
+            </div>
+            <div class="options hidden" value="asc"><a href="#">Ordre Croissant</a></div>
+            <div class="options hidden" value="desc"><a href="#">Ordre Décroissant</a></div>
+        </div>
     </div>
-
 </div>

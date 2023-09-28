@@ -1,3 +1,5 @@
+/* GESTION DE LA MODALE DE CONTACT */
+
 document.addEventListener('DOMContentLoaded', function() {
     // Get the modal
     const modal = document.getElementById('myModal');
@@ -38,54 +40,61 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-/* GESTION LOAD-MORE */
+/* GESTION FILTRES PHOTOS */
 
-jQuery(function($) {
-    var page = 2; // Numéro de page initial
-    var canLoad = true; // Variable pour empêcher le chargement excessif
+document.addEventListener('DOMContentLoaded', function () {
+    var categoriesDiv = document.querySelector('.select_categories');
+    var optionsDiv = categoriesDiv.querySelectorAll('.options');
 
-    $('#load-more-button').click(function(e) {
-        e.preventDefault();
-
-        if (!canLoad) {
-            return;
-        }
-
-        var $loadMoreButton = $('#load-more-button'); // Stockez le bouton dans une variable
-
-        $.ajax({
-            url: load_more_params.ajaxurl, // Utilisation de la variable ajaxurl
-            type: 'POST',
-            data: {
-                action: 'load_more_posts',
-                page: page,
-            },
-            success: function(response) {
-                if (response) {
-                    $('.photos_list').append(response);
-                    page++;
-                } else {
-                    canLoad = false;
-                    $loadMoreButton.hide(); // Masquez le bouton lorsque vous ne pouvez plus charger davantage d'articles
-                }
-            },
+    categoriesDiv.addEventListener('click', function () {
+        optionsDiv.forEach(function (option) {
+            option.classList.toggle('hidden');
         });
+
+        var iconChevron = categoriesDiv.querySelector('.icon-chevron');
+        iconChevron.classList.toggle('rotate');
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var categoriesDiv = document.querySelector('.select_formats');
+    var optionsDiv = categoriesDiv.querySelectorAll('.options');
+
+    categoriesDiv.addEventListener('click', function () {
+        optionsDiv.forEach(function (option) {
+            option.classList.toggle('hidden');
+        });
+
+        var iconChevron = categoriesDiv.querySelector('.icon-chevron');
+        iconChevron.classList.toggle('rotate');
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var categoriesDiv = document.querySelector('.select_tri');
+    var optionsDiv = categoriesDiv.querySelectorAll('.options');
+
+    categoriesDiv.addEventListener('click', function () {
+        optionsDiv.forEach(function (option) {
+            option.classList.toggle('hidden');
+        });
+
+        var iconChevron = categoriesDiv.querySelector('.icon-chevron');
+        iconChevron.classList.toggle('rotate');
     });
 });
 
 
-
-/* GESTION FILTRES PHOTOS */
-
 jQuery(document).ready(function ($) {
     var page = 1; // Initialise la variable page à 1
 
-    $(".selectors select").on("change", function () {
+    $(".selectors .options").on("click", function () {
         // Récupére les valeurs des filtres
-        var categorie = $(".select_categories").val();
-        var format = $(".select_formats").val();
+        var categorie = $(this).text();
+        var format = $(".select_formats .options").text();
         var order = $(".select_tri").val();
 
+        console.log('catégorie : '+categorie);
         // Réinitialise la page à 1 lors du changement de filtres
         page = 1;
 
@@ -105,6 +114,9 @@ jQuery(document).ready(function ($) {
             },
         });
     });
+
+    
+/* GESTION LOAD-MORE */
 
     $("#load-more-button").on("click", function () {
         // Incrémente la page pour charger plus de photos

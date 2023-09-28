@@ -1,22 +1,75 @@
 .selectors {
     display: flex;
-    margin: 40px 0;
-    select {
-      width: 260px;
-      height: 42px;
-      border-radius: 8px;
-      padding: 10px;
-      cursor: pointer;
-      }
+    margin: 30px 0;
+    width: 100%;
+    .champ {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        width: 230px;
+        height: 20px;
+        border-radius: 8px;
+        font-size: 12px;
+        padding: 11px;
+        cursor: pointer;
+        border: 1px solid $gris-fonce;
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    .options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        height: 20px;
+        border-radius: 8px;
+        font-size: 12px;
+        padding: 11px;
+        cursor: pointer;
+        background-color: white;
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        &:hover {
+            background-color: $rouge-tertiaire;
+        }
+        &:active {
+            background-color: $rouge-secondaire;
+        }
+        &:visited {
+            background-color: $rouge;
+            color: white;
+        }
+    }
+    .hidden {
+        display: none;
+    }
 }
 .select-gauche {
+    display: flex;
+    z-index: 1;
+    justify-content: space-between;
+    flex-direction: row;
     width: 50%;
 }
 .select-droit {
-    width: 50%;
     display: flex;
+    z-index: 1;
     justify-content: flex-end;
+    width: 50%;
 }
-  
 
+/* GESTION ICONES SELECTEURS */
+/* Masquer les options par défaut */
+.options.hidden {
+    display: none;
+}
 
+/* Rotation de l'icône "chevron" */
+.icon-chevron.rotate {
+    transform: rotate(180deg);
+}

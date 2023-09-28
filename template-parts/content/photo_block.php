@@ -1,10 +1,12 @@
 <div class="photo_block">
-    <div class="photo-thumbnail">
+    <div class="photo-thumbnail" 
+        data-reference="<?php echo esc_attr(get_post_meta(get_the_ID(), 'reference', true)); ?>" 
+        data-categorie="<?php echo esc_attr(get_post_meta(get_the_ID(), 'categorie', true)); ?>">
         <?php the_post_thumbnail(); ?>
-    </div>    
+    </div>  
     <div class="calque-photo">
         <div id="container-fullscreen">
-            <a href="#lightbox">
+            <a href="#myLightbox">
                 <img class="icon-fullscreen"
                 src="<?php echo get_template_directory_uri() . './img/Icon_fullscreen.png'; ?>"
                 alt="Icône Fullscreen">

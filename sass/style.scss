@@ -6,6 +6,7 @@
 @import "../sass/selectors.scss";
 @import "../sass/colors.scss";
 @import "../sass/photo-block.scss";
+@import "../sass/lightbox.scss";
 
 html {
     max-width: 1440px;
@@ -60,6 +61,20 @@ html {
         &:visited {
             text-decoration: none;
         }
+    }
+}
+/* BODY */
+
+.section_photos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 10%;
+    h3 {
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 300;
+        margin: 60px 0;
     }
 }
 
