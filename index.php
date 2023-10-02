@@ -16,9 +16,17 @@
 
         // On lance la boucle !
         if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post();
-            
-            the_content();
+           
+        // Récupérez l'URL de l'image à partir du champ personnalisé ACF
+        $image_url = get_field('photo');
 
+        // Vérifiez si l'URL de l'image existe
+        if ($image_url) {
+            echo '<figure><img src="' . esc_url($image_url) . '" alt="Image de l\'article"></figure>';
+        } else {
+            echo 'Aucune image n\'a été associée à cet article.';
+        }
+        
         endwhile;
         endif;
 

@@ -4,10 +4,9 @@
         <meta charset="<?php bloginfo( 'charset' ); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Nathalie Mota - Photographe event</title>
-        <!--<link rel="stylesheet" id="theme-style-css" href="/Nathalie_Mota/wp-content/themes/theme_nathalieMota/style.css" type="text/css" media="all"> -->
+        <!-- <link rel="stylesheet" id="theme-style-css" href="/Nathalie_Mota/wp-content/themes/theme_nathalieMota/style.css" type="text/css" media="all"> -->
         <!-- ajout de la référence à la bibliothèque jQuery -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="<?php echo get_template_directory_uri(); ?>/js/lightbox.js" type="module" defer></script>
         <?php wp_head(); ?>
     </head>
 <body <?php body_class(); ?>>

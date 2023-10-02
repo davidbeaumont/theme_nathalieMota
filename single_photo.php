@@ -1,18 +1,26 @@
 <?php
 get_header();
 
-/* Start the Loop */
-while ( have_posts() ) :
-	the_post();
-
 // On récupère les champs ACF nécessaires
 $reference=get_field('reference');
 $type=get_field('type');
 $annee=get_field('annee');
 
 // On récupère les taxonomies nécessaires
-$categories = get_the_term_list(get_the_ID(), 'categorie', '', ', ');
-$formats = get_the_term_list(get_the_ID(), 'format', '', ', ');
+$catTerms = wp_get_post_terms(get_the_ID(), 'categorie');
+$categories = array();
+foreach ($catTerms as $catTerm) {
+    $categories[] = $catTerm->name;
+}
+$categories = implode(', ', $categories);
+
+$formTerms = wp_get_post_terms(get_the_ID(), 'format');
+$formats = array();
+foreach ($formTerms as $formTerm) {
+    $formats[] = $formTerm->name;
+}
+$formats = implode(', ', $formats);
+
 ?> 
 <article class="single_photo" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header class="entry-header-photo alignwide">
@@ -26,9 +34,16 @@ $formats = get_the_term_list(get_the_ID(), 'format', '', ', ');
         </ul>
     </header><!-- .entry-header -->
     <div class="entry-content-photo">
-        <?php
-        the_content();
-        ?>
+    <?php
+    $image_url = get_field('photo');
+
+    // Vérifiez si l'URL de l'image existe
+    if ($image_url) {
+        echo '<figure><img src="' . esc_url($image_url) . '" alt="Image de l\'article"></figure>';
+    } else {
+        echo 'Aucune image n\'a été associée à cet article.';
+    }
+    ?>
     </div><!-- .entry-content -->
 </article><!-- #post-<?php the_ID(); ?> -->
     
@@ -128,7 +143,5 @@ $formats = get_the_term_list(get_the_ID(), 'format', '', ', ');
     />
 </div>
 <?php 
-
-endwhile; // End of the loop.
 
 get_footer();

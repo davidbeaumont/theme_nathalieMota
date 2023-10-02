@@ -18,18 +18,18 @@ function register_footer_menu() {
 }
 add_action('after_setup_theme', 'register_footer_menu');
 
+
 // associe single_photo.php aux contenus 'photo'
-function custom_single_template($single_template) {
-    global $post;
-
-    if ($post->post_type == 'photo') {
-        // Utilisez le modèle single_photo.php pour les articles de type "photo".
-        $single_template = dirname(__FILE__) . '/single_photo.php';
+function custom_template_for_photo_single( $template ) {
+    if ( is_singular('photo') ) {
+        $new_template = locate_template( array( 'single_photo.php' ) );
+        if ( ! empty( $new_template ) ) {
+            return $new_template;
+        }
     }
-
-    return $single_template;
+    return $template;
 }
-add_filter('template_include', 'custom_single_template');
+add_filter( 'template_include', 'custom_template_for_photo_single' );
 
 
 /* GESTION LOAD-MORE */
