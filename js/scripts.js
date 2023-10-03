@@ -30,50 +30,79 @@ document.addEventListener('DOMContentLoaded', function() {
             btnFullscreen.addEventListener('click', function(event) {
                 event.preventDefault(); // Empêche la navigation par défaut si le lien est un lien hypertexte
 
-                    // Sélectionnez l'élément .photo-thumbnail
-                    const photoThumbnail = btnFullscreen.closest('.photo_block').querySelector('.photo-thumbnail');
+                // Récupérer les valeurs de la photo spécifique
+                const photoThumbnail = btnFullscreen.closest('.photo_block').querySelector('.photo-thumbnail');
+                const imageSource = photoThumbnail.querySelector('img').src;
+                const photoRef = photoThumbnail.querySelector('.image-ref').innerHTML;
+                const photoCat = photoThumbnail.querySelector('.image-cat').innerHTML;
 
-                    // Sélectionnez l'élément d'image à l'intérieur de .photo-thumbnail
-                    const thumbnailImage = photoThumbnail.querySelector('img');
+                // Créez un tableau de toutes les photos du groupe
+                const photos = [];
+                const photoItems = document.querySelectorAll('.photo-thumbnail');
+                photoItems.forEach(function (item) {
+                    const img = item.querySelector('img').src;
+                    const ref = item.querySelector('.image-ref').innerHTML;
+                    const cat = item.querySelector('.image-cat').innerHTML;
+                    photos.push({
+                        imageSource: img,
+                        reference: ref,
+                        categorie: cat
+                    });
+                });
 
-                    // Sélectionnez l'élément d'image à l'intérieur de .lightbox__image
-                    const lightboxImage = document.getElementById('lightboxImage');
+                // Trouvez l'index de la photo actuelle
+                const currentPhotoIndex = photos.findIndex(function (photo) {
+                    return photo.imageSource === imageSource;
+                });
 
-                    // Obtenez l'URL de l'image à partir de l'attribut "src" de l'image dans .photo-thumbnail
-                    const imageSource = thumbnailImage.getAttribute("src");
-
-                    // Mettez à jour la source de l'image dans .lightbox__image avec l'URL récupérée
-                    lightboxImage.src = imageSource;
-
-                    // Récupère la référence de l'image
-                    const photoRef = photoThumbnail.querySelector('.image-ref').innerHTML;
-
-                    // Récupère la catégorie de l'image
-                    const photoCat = photoThumbnail.querySelector('.image-cat').innerHTML;
-
-                    // Récupère la référence à la div avec la classe "lightbox__reference"
-                    const lightboxReference = document.querySelector('.lightbox__reference');
-                
-                    // Insérez la valeur de photoRef dans la div
-                    lightboxReference.textContent = photoRef;
-
-                    // Récupérez la référence à la div avec la classe "lightbox__categorie"
-                    const lightboxCategorie = document.querySelector('.lightbox__categorie');
-
-                    // Insérez la valeur de photoRef dans la div
-                    lightboxCategorie.textContent = photoCat;
-
-                    // Récupère les éléments de navigation
-                    const prevButton = document.querySelector(".lightbox__prev");
-                    const nextButton = document.querySelector(".lightbox__next");
-
+                remplirRef (imageSource, photoRef, photoCat, photos, currentPhotoIndex);
                 openLightbox();
             });
         });
     }
+
+    function remplirRef (imageSource, photoRef, photoCat, photos, currentPhotoIndex) {
+        // Récupérer les éléments à remplir automatiquement
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxReference = document.querySelector('.lightbox__reference');
+        const lightboxCategorie = document.querySelector('.lightbox__categorie');
+
+        // Remplir les éléments de la lightbox avec les données de la photo actuelle
+        lightboxImage.src = imageSource;
+        lightboxReference.textContent = photoRef;
+        lightboxCategorie.textContent = photoCat;
+
+        // Gestion des liens de navigation
+        const prevLink = document.querySelector('.lightbox__prev');
+        if (prevLink) {
+            prevLink.addEventListener('click', function (event) {
+                event.preventDefault();
+                currentPhotoIndex--;
+                if (currentPhotoIndex < 0) {
+                    currentPhotoIndex = photos.length -1;
+                }
+                const photo = photos[currentPhotoIndex];
+                remplirRef(photo.imageSource, photo.reference, photo.categorie, photos, currentPhotoIndex);
+            });
+        }
+
+        const nextLink = document.querySelector('.lightbox__next');
+        if (nextLink) {
+            nextLink.addEventListener('click', function (event) {
+                event.preventDefault();
+                currentPhotoIndex++;
+                if (currentPhotoIndex >= photos.length) {
+                    currentPhotoIndex = 0;
+                }
+                const photo = photos[currentPhotoIndex];
+                remplirRef(photo.imageSource, photo.reference, photo.categorie, photos, currentPhotoIndex);
+            });
+        }
+    }
+
     /* GESTION FILTRES PHOTOS */
 
-    initLightbox();
+    //initLightbox();
     // Fonction pour gérer l'affichage des options et la rotation de l'icône
     function toggleOptions(element) {
         var optionsDiv = element.querySelectorAll('.option');

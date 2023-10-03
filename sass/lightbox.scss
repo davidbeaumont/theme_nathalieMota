@@ -25,14 +25,13 @@
         transition: .5s;
     }
 }
-.lightbox__next {
-    background-image: url('./img/nav_next.png');
-    background-repeat: no-repeat;
-    height: 18px;
-    width: 93px;
+.lightbox__prev {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 108px;
     position: fixed;
-    top: 50vh;
-    right: 45px;
+    left: 20px;
     cursor: pointer;
     z-index: 10;
     &:hover {
@@ -40,14 +39,13 @@
         transition: 1s ease-in-out;
     }
 }
-.lightbox__prev {
-    background-image: url('./img/nav_prev.png');
-    background-repeat: no-repeat;
-    height: 18px;
-    width: 108px;
+.lightbox__next {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 93px;
     position: fixed;
-    top: 50vh;
-    left: 20px;
+    right: 45px;
     cursor: pointer;
     z-index: 10;
     &:hover {
