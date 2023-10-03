@@ -296,10 +296,10 @@ body {
   width: 100%;
 }
 .selectors .champ {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  align-content: center;
   width: 230px;
   height: 20px;
   border-radius: 8px;
@@ -307,39 +307,38 @@ body {
   padding: 11px;
   cursor: pointer;
   border: 1px solid #C4C4C4;
+  text-transform: uppercase;
 }
 .selectors .champ img {
   width: 20px;
   height: 20px;
 }
-.selectors .options {
+.selectors .choix {
+  position: absolute;
+  width: 100%;
+}
+.selectors .option {
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-content: center;
   height: 20px;
-  border-radius: 8px;
   font-size: 12px;
   padding: 11px;
+  width: 230px;
   cursor: pointer;
   background-color: white;
 }
-.selectors .options a {
+.selectors .option a {
   text-decoration: none;
   color: black;
 }
-.selectors .options:hover {
+.selectors .option:hover {
   background-color: #FFD6D6;
 }
-.selectors .options:active {
-  background-color: #FE5858;
-}
-.selectors .options:visited {
+.selectors .option:active {
   background-color: #E00000;
   color: white;
-}
-.selectors .hidden {
-  display: none;
 }
 
 .select-gauche {
@@ -359,7 +358,7 @@ body {
 
 /* GESTION ICONES SELECTEURS */
 /* Masquer les options par défaut */
-.options.hidden {
+.option.hidden {
   display: none;
 }
 
@@ -382,17 +381,17 @@ body {
   position: relative;
   display: inline-block;
 }
+.photos_list .photo_block:hover .image-ref {
+  opacity: 1;
+}
+.photos_list .photo_block:hover .image-cat {
+  opacity: 1;
+}
 
 .photo-thumbnail img {
   width: 100%;
   height: 495px;
   object-fit: cover;
-}
-.photo-thumbnail:hover .image-ref {
-  opacity: 1;
-}
-.photo-thumbnail:hover .image-cat {
-  opacity: 1;
 }
 
 .calque-photo {
@@ -535,8 +534,8 @@ body {
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
-  margin-right: 50px;
-  margin-left: 50px;
+  margin-right: 150px;
+  margin-left: 150px;
   margin-top: 10px;
 }
 .lightbox__container img {

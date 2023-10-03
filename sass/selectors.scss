@@ -3,10 +3,10 @@
     margin: 30px 0;
     width: 100%;
     .champ {
+        position: relative;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        align-content: center;
         width: 230px;
         height: 20px;
         border-radius: 8px;
@@ -14,20 +14,25 @@
         padding: 11px;
         cursor: pointer;
         border: 1px solid $gris-fonce;
+        text-transform: uppercase;
         img {
             width: 20px;
             height: 20px;
         }
     }
-    .options {
+    .choix {
+        position: absolute;
+        width: 100%;
+    }
+    .option {
         display: flex;
         justify-content: space-between;
         align-items: center;
         align-content: center;
         height: 20px;
-        border-radius: 8px;
         font-size: 12px;
         padding: 11px;
+        width: 230px;
         cursor: pointer;
         background-color: white;
         a {
@@ -38,16 +43,11 @@
             background-color: $rouge-tertiaire;
         }
         &:active {
-            background-color: $rouge-secondaire;
-        }
-        &:visited {
             background-color: $rouge;
             color: white;
         }
     }
-    .hidden {
-        display: none;
-    }
+
 }
 .select-gauche {
     display: flex;
@@ -65,7 +65,7 @@
 
 /* GESTION ICONES SELECTEURS */
 /* Masquer les options par défaut */
-.options.hidden {
+.option.hidden {
     display: none;
 }
 

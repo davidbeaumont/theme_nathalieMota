@@ -89,9 +89,9 @@ function filter_photos() {
         'posts_per_page' => 12,
         'paged' => $page,
         'orderby' => 'date',
-        'order' => ($order === 'asc') ? 'ASC' : 'DESC',
+        'order' => ($order === 'ASC') ? 'ASC' : 'DESC',
         'tax_query' => array(
-            'relation' => 'OR', // Utilisez OR pour que l'une ou l'autre des conditions soit vraie
+            'relation' => 'AND', 
         ),
     );
     

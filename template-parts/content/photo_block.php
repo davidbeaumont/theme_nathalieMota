@@ -14,12 +14,6 @@ $categories = implode(', ', $categories);
 <div class="photo_block">
     <div class="photo-thumbnail">
         <?php echo '<img src="' . esc_url($image_url) . '" alt="Image de l\'article">'; ?>
-        <div class="image-ref">
-            Ref : <?php echo $reference ?> 
-        </div>
-        <div class="image-cat">
-            Catégorie : <?php echo $categories ?>
-        </div>
         <div class="calque-photo">
             <div id="container-fullscreen">
                 <a href="#myLightbox">
@@ -33,6 +27,12 @@ $categories = implode(', ', $categories);
                     <img src="<?php echo get_template_directory_uri() . './img/eye.png'; ?>"
                     alt="Icône oeil">
                 </a>
+            </div>
+            <div class="image-ref">
+                Ref : <?php echo $reference ?> 
+            </div>
+            <div class="image-cat">
+                Catégorie : <?php echo $categories ?>
             </div>
         </div>
     </div>

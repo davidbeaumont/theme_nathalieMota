@@ -43,72 +43,60 @@ document.addEventListener('DOMContentLoaded', function() {
 /* GESTION FILTRES PHOTOS */
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Fonction pour gérer l'affichage des options et la rotation de l'icône
+    function toggleOptions(element) {
+        var optionsDiv = element.querySelectorAll('.option');
+        optionsDiv.forEach(function (option) {
+            option.classList.toggle('hidden');
+        });
+
+        var iconChevron = element.querySelector('.icon-chevron');
+        iconChevron.classList.toggle('rotate');
+    }
+
+    // Ajoutez des gestionnaires d'événements pour chaque élément .select_categories
     var categoriesDiv = document.querySelector('.select_categories');
-    var optionsDiv = categoriesDiv.querySelectorAll('.options');
-
     categoriesDiv.addEventListener('click', function () {
-        optionsDiv.forEach(function (option) {
-            option.classList.toggle('hidden');
-        });
+        toggleOptions(categoriesDiv);
+    });
 
-        var iconChevron = categoriesDiv.querySelector('.icon-chevron');
-        iconChevron.classList.toggle('rotate');
-        const btnsFullscreen = document.querySelectorAll('.icon-fullscreen');
-        console.log(btnsFullscreen);
-                    // Add click event listeners to each button
-            btnsFullscreen.forEach(function(btnFullscreen) {
-                btnFullscreen.addEventListener('click', function(event) {
-                    console.log('bonjour');
-                    event.preventDefault(); // Empêche la navigation par défaut si le lien est un lien hypertexte
-                    openLightbox();
-                });
-            });
-        
+    var formatsDiv = document.querySelector('.select_formats');
+    formatsDiv.addEventListener('click', function () {
+        toggleOptions(formatsDiv);
+    });
+
+    var trisDiv = document.querySelector('.select_tri');
+    trisDiv.addEventListener('click', function () {
+        toggleOptions(trisDiv);
     });
 });
-
-document.addEventListener('DOMContentLoaded', function () {
-    var categoriesDiv = document.querySelector('.select_formats');
-    var optionsDiv = categoriesDiv.querySelectorAll('.options');
-
-    categoriesDiv.addEventListener('click', function () {
-        optionsDiv.forEach(function (option) {
-            option.classList.toggle('hidden');
-        });
-
-        var iconChevron = categoriesDiv.querySelector('.icon-chevron');
-        iconChevron.classList.toggle('rotate');
-
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    var categoriesDiv = document.querySelector('.select_tri');
-    var optionsDiv = categoriesDiv.querySelectorAll('.options');
-
-    categoriesDiv.addEventListener('click', function () {
-        optionsDiv.forEach(function (option) {
-            option.classList.toggle('hidden');
-        });
-
-        var iconChevron = categoriesDiv.querySelector('.icon-chevron');
-        iconChevron.classList.toggle('rotate');
-    });
-});
-
 
 jQuery(document).ready(function ($) {
     var page = 1; // Initialise la variable page à 1
+    var categorie = '';
+    var format = '';
+    var order = '';
 
-    $(".selectors .options").on("click", function () {
-        // Récupére les valeurs des filtres
-        var categorie = $(this).text();
-        var format = $(".select_formats .options").text();
-        var order = $(".select_tri").val();
+    $(".select_categories .option").click(function () {
+        categorie = $(this).text();
+        updatePhotos();
+        $(".categorie-text").html(categorie);
+    });
 
-        console.log('catégorie : '+categorie);
-        // Réinitialise la page à 1 lors du changement de filtres
-        page = 1;
+    $(".select_formats .option").click(function () {
+        format = $(this).text();
+        updatePhotos();
+        $(".format-text").html(format);
+    });
+
+    $(".select_tri .option").click(function () {
+        order = $(this).attr('value');
+        var champOrdre = $(this).text();
+        updatePhotos();
+        $(".tri-text").text(champOrdre);
+    });
+
+    function updatePhotos() {
 
         // Envoi d'une requête AJAX
         $.ajax({
@@ -125,7 +113,10 @@ jQuery(document).ready(function ($) {
                 $(".photos_list").html(response); // Remplace le contenu existant par les nouvelles photos
             },
         });
-    });
+
+
+    }
+
 
     
 /* GESTION LOAD-MORE */
@@ -133,11 +124,6 @@ jQuery(document).ready(function ($) {
     $("#load-more-button").on("click", function () {
         // Incrémente la page pour charger plus de photos
         page++;
-
-        // Récupére les valeurs actuelles des filtres
-        var categorie = $(".select_categories").val();
-        var format = $(".select_formats").val();
-        var order = $(".select_tri").val();
 
         // Envoi une requête AJAX pour charger plus de photos
         $.ajax({
@@ -190,7 +176,6 @@ document.addEventListener('DOMContentLoaded', function() {
     btnsFullscreen.forEach(function(btnFullscreen) {
         btnFullscreen.addEventListener('click', function(event) {
             event.preventDefault(); // Empêche la navigation par défaut si le lien est un lien hypertexte
-            console.log(btnFullscreen);
 
                 // Sélectionnez l'élément .photo-thumbnail
                 const photoThumbnail = btnFullscreen.closest('.photo_block').querySelector('.photo-thumbnail');
@@ -224,7 +209,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Insérez la valeur de photoRef dans la div
                 lightboxCategorie.textContent = photoCat;
-                
+
+                // Récupère les éléments de navigation
+                const prevButton = document.querySelector(".lightbox__prev");
+                const nextButton = document.querySelector(".lightbox__next");
+
             openLightbox();
         });
     });
