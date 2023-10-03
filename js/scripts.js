@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /* GESTION FILTRES PHOTOS */
 
-    //initLightbox();
+    initLightbox();
     // Fonction pour gérer l'affichage des options et la rotation de l'icône
     function toggleOptions(element) {
         var optionsDiv = element.querySelectorAll('.option');
