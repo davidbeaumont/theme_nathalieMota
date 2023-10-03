@@ -2,7 +2,7 @@
 // On récupère les champs ACF nécessaires
 $reference=get_field('reference');
 $type=get_field('type');
-$image_url = get_field('photo');
+$image_url = get_field('image');
 // On récupère les taxonomies nécessaires
 $terms = wp_get_post_terms(get_the_ID(), 'categorie');
 $categories = array();

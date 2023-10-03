@@ -6,6 +6,19 @@ function enqueue_custom_styles() {
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
 
+function enqueue_custom_scripts() {
+    wp_enqueue_script('custom-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), null, true);
+    wp_enqueue_script('lightbox-scripts', get_template_directory_uri() . '/js/lightbox.js', array('jquery'), null, true);
+
+    /* GESTION LOAD-MORE */
+    // Passer la variable ajaxurl au script JavaScript
+    wp_localize_script('custom-scripts', 'load_more_params', array(
+        'ajaxurl' => admin_url('admin-ajax.php'),
+    ));
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
 // Crée emplacement menu principal
 function register_custom_menu() {
     register_nav_menu('primary-menu', __('Primary Menu'));
@@ -30,20 +43,6 @@ function custom_template_for_photo_single( $template ) {
     return $template;
 }
 add_filter( 'template_include', 'custom_template_for_photo_single' );
-
-
-/* GESTION LOAD-MORE */
-
-function enqueue_custom_scripts() {
-    wp_enqueue_script('custom-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), null, true);
-
-    // Passer la variable ajaxurl au script JavaScript
-    wp_localize_script('custom-scripts', 'load_more_params', array(
-        'ajaxurl' => admin_url('admin-ajax.php'),
-    ));
-}
-
-add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 
 
 function load_more_posts() {
