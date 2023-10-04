@@ -1,10 +1,10 @@
 <div id="myLightbox" class="lightbox">
     <div class="lightbox__close" title="Fermer"></div>
     <div class="lightbox__prev" title="Précédent">
-        <img src="<?php echo get_template_directory_uri() . './img/nav_prev.png'; ?>">
+        <img src="<?php echo get_template_directory_uri() . '/img/nav_prev.png'; ?>">
     </div>
     <div class="lightbox__next" title="Suivant">
-        <img src="<?php echo get_template_directory_uri() . './img/nav_next.png'; ?>">
+        <img src="<?php echo get_template_directory_uri() . '/img/nav_next.png'; ?>">
     </div>
     <div class="lightbox__container">
         <div class="lightbox__image">

@@ -1,8 +1,14 @@
 @import "../sass/colors.scss";
 
+.article-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+}
 .single_photo {
     display: flex;
     justify-content: space-between;
+    height: 70vh;
     margin-top: 20px;
     margin: 1% 10% 0 10%;
 }
@@ -80,15 +86,18 @@
 }
 .entry-content-photo {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-end;
+    height: 70vh;
     width: 50%;
     margin: 0;
-    figure {
-        margin: 0;
+    .wrapper-photo-single {
+        height: 100%;
     }
-    img {
+    .photo-single {
+        display: flex;
         width: 100%;
+        height: 100%;
         object-fit: contain;  
     }
 }

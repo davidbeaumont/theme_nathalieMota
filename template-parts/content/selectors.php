@@ -2,7 +2,7 @@
     <div class="select-gauche">
         <div name="categories" class="select_categories">
             <div class="champ" value=""><span class="categorie-text">Catégories</span>
-                <img class="icon-chevron" src="<?php echo get_template_directory_uri() . './img/down.png'; ?>"
+                <img class="icon-chevron" src="<?php echo get_template_directory_uri() . '/img/down.png'; ?>"
                 alt="Icône chevron bas">
             </div>
             <div class="choix">
@@ -20,7 +20,7 @@
 
         <div name="formats" class="select_formats">
             <div class="champ" value=""><span class="format-text">Formats</span>
-                <img class="icon-chevron" src="<?php echo get_template_directory_uri() . './img/down.png'; ?>"
+                <img class="icon-chevron" src="<?php echo get_template_directory_uri() . '/img/down.png'; ?>"
                 alt="Icône chevron bas">
             </div>
             <div class="choix">
@@ -40,7 +40,7 @@
         <div name="tri" class="select_tri">
             <div class="champ" value=""><span class="tri-text">Trier par</span>
                 <img class="icon-chevron"
-                src="<?php echo get_template_directory_uri() . './img/down.png'; ?>"
+                src="<?php echo get_template_directory_uri() . '/img/down.png'; ?>"
                 alt="Icône chevron bas">
             </div>
             <div class="choix">
