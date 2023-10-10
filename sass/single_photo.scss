@@ -103,32 +103,28 @@
 }
 .site__navigation {
     display: flex;
+    flex-direction: column;
     margin-top: 10px;
     gap: 10px;
-    .post-thumbnail {
-        display: flex;
-        width: 80px;
-        height: 70px;
-        .thumbnail-link .hover-image {
-            opacity: 0; /* Masque l'image par défaut */
-        }
-        .thumbnail-link:hover .hover-image {
-            opacity: 1; /* Affiche l'image au survol du lien */
-        }
-        .hover-image {
-            width: 100%;
-            img {
-                width: 80px;
-                height: 70px;
-                object-fit: cover;
-            }
-        }
-        .thumbnail-link {
-            .arrow {
-                padding: 0 30px;
-            }
-        }    
-    }        
 }
-
-
+.post-thumbnail {
+    display: flex;
+    width: 80px;
+    height: 70px;
+    #hover-image {
+        width: 100%;
+        img {
+            width: 80px;
+            height: 70px;
+            object-fit: cover;
+        }
+    }
+}    
+.thumbnail-link {
+    display: flex;
+    justify-content: space-between;
+    .arrow {
+        display: flex;
+        justify-content: space-between;
+    }
+}    

@@ -228,30 +228,32 @@ body {
 
 .site__navigation {
   display: flex;
+  flex-direction: column;
   margin-top: 10px;
   gap: 10px;
 }
-.site__navigation .post-thumbnail {
+
+.post-thumbnail {
   display: flex;
   width: 80px;
   height: 70px;
 }
-.site__navigation .post-thumbnail .thumbnail-link .hover-image {
-  opacity: 0; /* Masque l'image par défaut */
-}
-.site__navigation .post-thumbnail .thumbnail-link:hover .hover-image {
-  opacity: 1; /* Affiche l'image au survol du lien */
-}
-.site__navigation .post-thumbnail .hover-image {
+.post-thumbnail #hover-image {
   width: 100%;
 }
-.site__navigation .post-thumbnail .hover-image img {
+.post-thumbnail #hover-image img {
   width: 80px;
   height: 70px;
   object-fit: cover;
 }
-.site__navigation .post-thumbnail .thumbnail-link .arrow {
-  padding: 0 30px;
+
+.thumbnail-link {
+  display: flex;
+  justify-content: space-between;
+}
+.thumbnail-link .arrow {
+  display: flex;
+  justify-content: space-between;
 }
 
 .hero-header-random {
@@ -616,6 +618,8 @@ html {
   color: black;
 }
 .navbar li a:hover {
+  transition: 0.5s ease-in-out;
+  transform: scale(1.1);
   font-weight: bold;
 }
 .navbar li a:visited {

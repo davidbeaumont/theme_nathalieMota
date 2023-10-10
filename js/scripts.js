@@ -1,26 +1,26 @@
 /* GESTION DE LA MODALE DE CONTACT */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Get the modal
+    // Récupérer la modale
     const modal = document.getElementById('myModal');
 
-    // Get the buttons that open the modal
+    // Récupérer les boutons qui ouvrent la modale
     const btns = document.querySelectorAll(".myBtn");
 
-    // Get the <span> element that closes the modal
+    // Récupérer l'élément <span> qui ferme la modale
     const span = document.getElementsByClassName("close")[0];
 
-    // Function to open the modal
+    // Fonction pour ouvrir la modale
     function openModal() {
         modal.style.display = "block";
     }
 
-    // Function to close the modal
+    // Fonction pour fermer la modale
     function closeModal() {
         modal.style.display = "none";
     }
 
-    // Add click event listeners to each button
+    // Ajouter des écouteurs d'événements de clic à chaque bouton
     btns.forEach(function(btn) {
         btn.addEventListener('click', function(event) {
             event.preventDefault(); // Empêche la navigation par défaut si le lien est un lien hypertexte
@@ -28,13 +28,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // When the user clicks on <span> (x), close the modal
+    // Lorsque l'utilisateur clique sur <span> (x), fermer la modale
     span.onclick = closeModal;
 
-    // When the user clicks anywhere outside of the modal, close it
+    // Lorsque l'utilisateur clique n'importe où en dehors de la modale, la fermer
     window.onclick = function(event) {
         if (event.target == modal) {
             closeModal();
         }
     }
+});
+
+/* GESTION DE LA MINIATURE DANS SINGLE_PHOTO */
+
+$(document).ready(function() {
+    // Cacher toutes les miniatures lors du chargement de la page
+    $('.prev-thumbnail, .next-thumbnail').hide();
+
+    // Gérer l'affichage des miniatures au survol
+    $('.prev-nav').hover(function() {
+        $('.prev-thumbnail').show();
+    }, function() {
+        $('.prev-thumbnail').hide();
+    });
+
+    $('.next-nav').hover(function() {
+        $('.next-thumbnail').show();
+    }, function() {
+        $('.next-thumbnail').hide();
+    });
 });

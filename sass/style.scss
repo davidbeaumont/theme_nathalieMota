@@ -56,6 +56,8 @@ html {
         width: 100%;
         color: black;
         &:hover {
+            transition: .5s ease-in-out;
+            transform: scale(1.1);
             font-weight: bold;
         }
         &:visited {

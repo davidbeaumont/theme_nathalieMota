@@ -62,42 +62,45 @@ $formats = implode(', ', $formats);
             <?php
             // Obtenez l'ID du post actuel
             $current_post_id = get_the_ID();
-
             // Obtenez le post précédent
             $previous_post = get_adjacent_post(false, '', true);
-
             // Obtenez le post suivant
-            $next_post = get_adjacent_post(false, '', false);
-
+            $next_post = get_adjacent_post(false, '', false);  
+            ?>           
+            <div class="post-thumbnail">
+                <div id="hover-image">
+                    <div class="prev-thumbnail">
+                        <?php echo get_the_post_thumbnail($previous_post, 'thumbnail'); ?>
+                    </div>
+                    <div class="next-thumbnail">
+                        <?php echo get_the_post_thumbnail($next_post, 'thumbnail'); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="thumbnail-link">
+            <?php
             // Affiche la miniature du post précédent s'il existe
             if ($previous_post) {
                 ?>
-                <div class="post-thumbnail">
-                    <a href="<?php echo get_permalink($previous_post); ?>" class="thumbnail-link">
-                        <div class="hover-image">
-                        <?php echo get_the_post_thumbnail($previous_post, 'thumbnail'); ?>
-                        </div>
-                        <img src="../../wp-content/themes/theme_nathalieMota/img/prev.png" alt="Article précédent" class="arrow"/>
+                <div class="prev-nav">
+                    <a href="<?php echo get_permalink($previous_post); ?>">
+                    <img src="../../wp-content/themes/theme_nathalieMota/img/prev.png" alt="Article précédent" class="arrow"/>
                     </a>
                 </div>
-
                 <?php
             }
-
             // Affiche la miniature du post suivant s'il existe
             if ($next_post) {
                 ?>
-                <div class="post-thumbnail">
-                    <a href="<?php echo get_permalink($next_post); ?>" class="thumbnail-link">
-                        <div class="hover-image">
-                        <?php echo get_the_post_thumbnail($next_post, 'thumbnail'); ?>
-                        </div>
-                        <img src="../../wp-content/themes/theme_nathalieMota/img/next.png" alt="Article suivant" class="arrow"/>
+                <div class="next-nav">
+                    <a href="<?php echo get_permalink($next_post); ?>">
+                    <img src="../../wp-content/themes/theme_nathalieMota/img/next.png" alt="Article suivant" class="arrow"/>
                     </a>
                 </div>
                 <?php
-            } ?>
-
+            } 
+            ?>
+            </div>
         </div>
     </div>
 </div>
