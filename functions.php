@@ -31,6 +31,12 @@ function register_footer_menu() {
 }
 add_action('after_setup_theme', 'register_footer_menu');
 
+// Crée emplacement menu mobile
+function register_mobile_menu() {
+    register_nav_menu('mobile-menu', __('Mobile Menu'));
+}
+add_action('after_setup_theme', 'register_mobile_menu');
+
 
 // associe single_photo.php aux contenus 'photo'
 function custom_template_for_photo_single( $template ) {

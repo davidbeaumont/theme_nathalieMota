@@ -16,13 +16,24 @@
                     <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo">
                 </a>
             </div>
-            <div class="menu">  
+            <nav class="primary-menu">  
             <?php
             wp_nav_menu(array(
                 'theme_location' => 'primary-menu',
             ));
             ?>
+            </nav>
+            <div id="icons" class="burger">
+                <span></span>
             </div>
+            <div id="nav" class="mobile-menu">  
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => 'mobile-menu',
+            ));
+            ?>
+            </div>
+
         </div>
     </header>
     <?php wp_body_open(); ?>

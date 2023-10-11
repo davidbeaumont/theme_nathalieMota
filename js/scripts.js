@@ -58,3 +58,24 @@ $(document).ready(function() {
         $('.next-thumbnail').hide();
     });
 });
+
+
+/* GESTION DU MENU BURGER */
+
+const burger = document.querySelector(".burger");
+const links = document.querySelectorAll(".menu-burger li");
+
+burger.addEventListener("click", () => {
+  burger.classList.toggle("active");
+});
+
+icons.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
+
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("active");
+    burger.classList.remove("active");
+  });
+});

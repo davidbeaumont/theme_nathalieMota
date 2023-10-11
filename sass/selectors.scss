@@ -43,6 +43,9 @@
             background-color: $rouge-tertiaire;
         }
         &:active {
+            background-color: $rouge-secondaire;
+        }
+        &:focus {
             background-color: $rouge;
             color: white;
         }
