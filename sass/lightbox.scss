@@ -26,6 +26,9 @@
     }
 }
 .lightbox__prev {
+    background-image: url('./img/nav_prev.png');
+    background-repeat: no-repeat;
+    background-position: 50% 47%;
     display: flex;
     align-items: center;
     height: 100%;
@@ -35,21 +38,24 @@
     cursor: pointer;
     z-index: 10;
     &:hover {
-        transform: scale(.8);
+        transform: translateX(-10px);
         transition: 1s ease-in-out;
     }
 }
 .lightbox__next {
+    background-image: url('./img/nav_next.png');
+    background-repeat: no-repeat;
+    background-position: 50% 47%;
     display: flex;
     align-items: center;
     height: 100%;
     width: 93px;
     position: fixed;
-    right: 45px;
+    right: 33px;
     cursor: pointer;
     z-index: 10;
     &:hover {
-        transform: scale(.8);
+        transform: translateX(10px);
         transition: 1s ease-in-out;
     }
 }

@@ -28,11 +28,13 @@ $categories = implode(', ', $categories);
                     alt="Icône oeil">
                 </a>
             </div>
-            <div class="image-ref">
-                Ref : <?php echo $reference ?> 
-            </div>
-            <div class="image-cat">
-                Catégorie : <?php echo $categories ?>
+            <div class="info-wrapper">
+                <div class="image-ref">
+                    Ref : <?php echo $reference ?> 
+                </div>
+                <div class="image-cat">
+                    Catégorie : <?php echo $categories ?>
+                </div>
             </div>
         </div>
     </div>

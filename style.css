@@ -56,7 +56,7 @@ html {
 .navbar .logo {
   display: flex;
   align-items: center;
-  margin-left: 10%;
+  margin: 0 10%;
 }
 .navbar .logo img {
   width: 100%;
@@ -66,18 +66,19 @@ html {
 }
 .navbar .primary-menu {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  margin: 0 10% 0 0;
+  margin: 0 10%;
   padding: 0;
   white-space: nowrap;
-  width: 50%;
+  width: 306px;
 }
 .navbar ul {
   display: flex;
   flex-direction: row;
   list-style-type: none;
   gap: 45px;
+  padding: 0;
 }
 .navbar li a {
   display: flex;
@@ -630,24 +631,37 @@ body {
   opacity: 1;
 }
 
-.image-ref {
+.info-wrapper {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.image-ref,
+.image-cat {
+  display: flex;
   opacity: 0;
   z-index: 1;
-  display: flex;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
   color: white;
+  white-space: nowrap;
+  margin: 0 10px;
+}
+.image-ref:hover,
+.image-cat:hover {
+  opacity: 1;
+}
+
+.image-ref {
+  justify-content: flex-start;
 }
 
 .image-cat {
-  opacity: 0;
-  z-index: 1;
-  display: flex;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  color: white;
+  justify-content: flex-end;
 }
 
 .lightbox {
@@ -680,6 +694,9 @@ body {
 }
 
 .lightbox__prev {
+  background-image: url("./img/nav_prev.png");
+  background-repeat: no-repeat;
+  background-position: 50% 47%;
   display: flex;
   align-items: center;
   height: 100%;
@@ -690,22 +707,25 @@ body {
   z-index: 10;
 }
 .lightbox__prev:hover {
-  transform: scale(0.8);
+  transform: translateX(-10px);
   transition: 1s ease-in-out;
 }
 
 .lightbox__next {
+  background-image: url("./img/nav_next.png");
+  background-repeat: no-repeat;
+  background-position: 50% 47%;
   display: flex;
   align-items: center;
   height: 100%;
   width: 93px;
   position: fixed;
-  right: 45px;
+  right: 33px;
   cursor: pointer;
   z-index: 10;
 }
 .lightbox__next:hover {
-  transform: scale(0.8);
+  transform: translateX(10px);
   transition: 1s ease-in-out;
 }
 
@@ -744,15 +764,18 @@ body {
 @media screen and (max-width: 768px) {
   .navbar ul {
     gap: 10px;
-    flex-wrap: wrap;
     justify-content: center;
   }
   .navbar li a {
     font-size: 12px;
   }
+  .logo,
+  .primary-menu {
+    margin: 0 5% !important;
+  }
   .selectors .champ,
   .selectors .option {
-    width: 35vw;
+    width: 33vw;
   }
   .select-gauche,
   .select_droit {
@@ -763,10 +786,44 @@ body {
     z-index: 10;
   }
   .section_photos {
-    margin: 0 2%;
+    margin: 0 5%;
   }
   .photos_list {
     gap: 12px;
+  }
+  .image-cat,
+  .image-ref {
+    font-size: 12px;
+  }
+  .lightbox__info {
+    font-size: 12px;
+  }
+  .lightbox__container {
+    margin-right: 39px;
+    margin-left: 44px;
+  }
+  .lightbox__image {
+    z-index: 15;
+  }
+  .entry-title-photo {
+    font-size: 37px;
+  }
+  .entry-header-photo li {
+    line-height: 20px;
+  }
+  .entry-header-photo {
+    width: 100%;
+  }
+  .single_photo {
+    flex-direction: column-reverse;
+    height: 100%;
+  }
+  .entry-content-photo {
+    width: 100%;
+    height: 100%;
+  }
+  .article-wrapper {
+    height: 100%;
   }
 }
 /****** Media queries ***********/
@@ -786,7 +843,6 @@ body {
     z-index: 1000;
     display: flex;
     justify-content: center;
-    align-items: center;
     position: absolute;
     left: 0;
     top: 72px;
@@ -803,12 +859,17 @@ body {
     align-items: center;
   }
   .navbar .mobile-menu.active li a {
+    display: flex;
+    justify-content: center;
     color: white;
     position: relative;
     font-size: 44px;
   }
   .navbar .mobile-menu.active li a :hover {
     color: black;
+  }
+  .navbar .menu-mobile-menu-container {
+    display: flex;
   }
   .navbar .burger {
     display: block;
@@ -876,7 +937,32 @@ body {
     margin-top: 5px;
   }
   .photos_list {
-    gap: 10px;
+    grid-template-columns: 100%;
+    gap: 8px;
+  }
+  .site__navigation {
+    display: none;
+  }
+  .entry-contact-photo {
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0;
+    margin: 10px 0 20px 0;
+  }
+  .entry-contact-photo p {
+    width: 100%;
+  }
+  .myBtn {
+    width: 100% !important;
+  }
+  .article-wrapper {
+    height: 100%;
+  }
+  .section_photos h3 {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
   }
 }
 

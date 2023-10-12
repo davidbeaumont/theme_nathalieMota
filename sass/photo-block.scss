@@ -72,22 +72,31 @@
         opacity: 1;
     }
 }
-
-.image-ref {
+.info-wrapper {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.image-ref,
+.image-cat {
+    display: flex;
     opacity: 0;
     z-index: 1;
-    display: flex;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
     color: white;
+    white-space: nowrap;
+    margin: 0 10px;
+    &:hover {
+        opacity: 1;
+    }
+}
+.image-ref {
+    justify-content: flex-start;
 }
 .image-cat {
-    opacity: 0;
-    z-index: 1;
-    display: flex;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    color: white;
-}       
+    justify-content: flex-end;
+}
