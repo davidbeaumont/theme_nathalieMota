@@ -242,7 +242,6 @@ body {
   margin: 5% auto; /* 5% from the top and centered */
   border: 5px solid black;
   max-width: 597px;
-  height: 769px;
   animation: fade-up 1.5s ease-in-out forwards;
 }
 
@@ -965,7 +964,6 @@ body {
   }
   .modal-content {
     width: 90%;
-    height: 680px;
   }
   .modal-form label {
     width: 276px;
