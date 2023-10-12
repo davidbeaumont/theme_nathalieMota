@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
     btns.forEach(function(btn) {
         btn.addEventListener('click', function(event) {
             event.preventDefault(); // Empêche la navigation par défaut si le lien est un lien hypertexte
+            nav.classList.remove("active");
+            burger.classList.remove("active");
             openModal();
         });
     });

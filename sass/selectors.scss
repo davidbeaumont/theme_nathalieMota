@@ -1,5 +1,6 @@
 .selectors {
     display: flex;
+    justify-content: space-between;
     margin: 30px 0;
     width: 100%;
     .champ {
@@ -7,7 +8,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 230px;
+        width: 260px;
         height: 20px;
         border-radius: 8px;
         font-size: 12px;
@@ -32,7 +33,7 @@
         height: 20px;
         font-size: 12px;
         padding: 11px;
-        width: 230px;
+        width: 260px;
         cursor: pointer;
         background-color: white;
         a {
@@ -54,16 +55,18 @@
 }
 .select-gauche {
     display: flex;
+    flex-wrap: wrap;
     z-index: 1;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: row;
-    width: 50%;
+    width: 60%;
+    gap: 10px;
 }
 .select-droit {
     display: flex;
     z-index: 1;
     justify-content: flex-end;
-    width: 50%;
+    width: 40%;
 }
 
 /* GESTION ICONES SELECTEURS */

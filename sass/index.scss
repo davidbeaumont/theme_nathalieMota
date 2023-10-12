@@ -1,7 +1,8 @@
 .hero-header-random {
+    max-width: 1440px;
     position: relative;
     figure {
-        height: 962px;
+        max-height: 962px;
         margin: 0;
         overflow: hidden;
         img {
@@ -12,15 +13,15 @@
     }
 }
 .titre-header {
-    background-image: url('img/titreHeader.png');
-    width: 1000px;
-    height: 142px;
+    width: 68vw;
     position: absolute;
-    top: 50%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
+    img {
+        width: 100%;
+    }
 }
-
 #load-more-button,
 #all-photos-button {
     display: flex;

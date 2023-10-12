@@ -1,0 +1,34 @@
+$breakpoint__tablet: 768px;
+
+/****** Media queries ***********/
+/* Version tablette */
+@media screen and (max-width: #{$breakpoint__tablet}) {
+    .navbar ul {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .navbar li a {
+        font-size: 12px;
+    }
+    .selectors {
+        .champ,
+        .option {
+            width: 35vw;
+        }
+    }
+    .select-gauche,
+    .select_droit {
+        flex-direction: column;
+        width: 50%;
+    }
+    .choix {
+        z-index: 10;
+    }
+    .section_photos {
+        margin: 0 2%;
+    }
+    .photos_list {
+        gap: 12px;
+    }
+}

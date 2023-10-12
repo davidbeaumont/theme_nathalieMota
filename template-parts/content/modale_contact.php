@@ -4,7 +4,9 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close"></span>
-    <div class="modal-header"></div>
+    <div class="modal-header">
+      <img src="<?php echo get_template_directory_uri() . '/img/contact-header.png'; ?>" alt="formulaire de contact">
+    </div>
     <div class="modal-form">
     <?php
     // On insère le formulaire de demandes de contact

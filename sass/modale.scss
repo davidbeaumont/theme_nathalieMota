@@ -2,7 +2,7 @@
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 111; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -17,16 +17,17 @@
     background-color: #fefefe;
     margin: 5% auto; /* 5% from the top and centered */
     border: 5px solid black;
-    width: 597px;
+    max-width: 597px;
     height: 769px;
     animation: $animation-fade-up;
 }
 
 .modal-header {
-    background-image: url(./img/contact-header.png);
-    height: 110px;
-    background-repeat: no-repeat;
     margin-top: 20px;
+    img {
+        width: 100%;
+        height: 100%;
+    }
 }
 .modal-form {
     display: flex;
@@ -34,9 +35,15 @@
     text-transform: uppercase;
     margin-top: 10px;
     font-size: 12px;
-    width: 55%;
-    margin-left: auto;
-    margin-right: auto;
+    p {
+        display: flex;
+        justify-content: center;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
     input {
         border-radius: 10px;
         border: 1px solid #B8BBC2;
