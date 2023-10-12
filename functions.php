@@ -1,5 +1,5 @@
 <?php
-// Load style.css file
+// Charge style.css
 function enqueue_custom_styles() {
     wp_enqueue_style('theme-style', get_stylesheet_directory_uri() . '/style.css');
 }
@@ -11,7 +11,7 @@ function enqueue_custom_scripts() {
     wp_enqueue_script('lightbox-scripts', get_template_directory_uri() . '/js/lightbox.js', array('jquery'), null, true);
 
     /* GESTION LOAD-MORE */
-    // Passer la variable ajaxurl au script JavaScript
+    // Passe la variable ajaxurl au script JavaScript
     wp_localize_script('custom-scripts', 'load_more_params', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
     ));

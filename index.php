@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 <header>
     <div class="hero-header-random">
         <?php
@@ -34,17 +33,13 @@
             wp_reset_postdata();
         ?>
         <div class="titre-header">
-        <!--<h1>Photographe event</h1> -->
         <img src="<?php echo get_template_directory_uri() . '/img/titreHeader.png'; ?>" alt="Photographe event">
         </div>
     </div>
-
 </header>
 <article>
     <div id="all-photos" class="section_photos">
-
-        <?php get_template_part( 'template-parts/content/selectors' )?>
-        
+        <?php get_template_part( 'template-parts/content/selectors' )?>  
         <div class="list-wrapper">
             <div class="photos_list">
                 <?php 

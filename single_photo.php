@@ -60,11 +60,11 @@ $formats = implode(', ', $formats);
         </div>
         <div class="site__navigation">
             <?php
-            // Obtenez l'ID du post actuel
+            // Récupère l'ID du post actuel
             $current_post_id = get_the_ID();
-            // Obtenez le post précédent
+            // Récupère le post précédent
             $previous_post = get_adjacent_post(false, '', true);
-            // Obtenez le post suivant
+            // Récupère le post suivant
             $next_post = get_adjacent_post(false, '', false);  
             ?>           
             <div class="post-thumbnail">
@@ -108,10 +108,10 @@ $formats = implode(', ', $formats);
 <h3>vous aimerez aussi</h2>
     <div class="photos_list">
         <?php 
-        // Récupérer la catégorie de la photo actuellement affichée
+        // Récupére la catégorie de la photo actuellement affichée
         $current_category = implode(', ', wp_get_post_terms(get_the_ID(), 'categorie', array('fields' => 'names')));
             
-        // Obtenez l'ID du post actuel
+        // Récupère l'ID du post actuel
         $current_post_id = get_the_ID();
         
          // On définit les arguments pour définir ce que l'on souhaite récupérer

@@ -8,11 +8,9 @@
         ?>
     </div>
 </div>
-
 <!-- appel de la modale de contact -->
 <?php get_template_part( 'template-parts/content/modale_contact' ); ?>
 <!-- appel de la lightbox -->
 <?php get_template_part( 'template-parts/content/lightbox' ); ?>
-
 </body>
 </html>

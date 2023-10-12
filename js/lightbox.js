@@ -3,40 +3,40 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     function initLightbox() {
-        // Get the lightbox
+        // Récupère la lightbox
         const lightbox = document.getElementById('myLightbox');
 
-        // Get the element that open the lightbox
+        // Récupère l'élement qui ouvre la lightbox
         const btnsFullscreen = document.querySelectorAll('.icon-fullscreen');
 
-        // Get the element that closes the lightbox
+        // Récupère l'élement qui ferme la lightbox
         const close = document.querySelector(".lightbox__close");
 
-        // Function to open the lightbox
+        // Fonction pour ouvrir la lightbox
         function openLightbox() {
             lightbox.style.display = "block";
         }
 
-        // Function to close the lightbox
+        // Fonction pour fermer la lightbox
         function closeLightbox() {
             lightbox.style.display = "none";
         }
         
-        // When the user clicks on (x), close the lightbox
+        // Quand l'utilisateur click sur (x), ferme la lightbox
         close.onclick = closeLightbox;
 
-        // Add click event listeners to each button
+        // Ajoute click event listeners sur chaque bouton
         btnsFullscreen.forEach(function(btnFullscreen) {
             btnFullscreen.addEventListener('click', function(event) {
                 event.preventDefault(); // Empêche la navigation par défaut si le lien est un lien hypertexte
 
-                // Récupérer les valeurs de la photo spécifique
+                // Récupère les valeurs de la photo spécifique
                 const photoThumbnail = btnFullscreen.closest('.photo_block').querySelector('.photo-thumbnail');
                 const imageSource = photoThumbnail.querySelector('img').src;
                 const photoRef = photoThumbnail.querySelector('.image-ref').innerHTML;
                 const photoCat = photoThumbnail.querySelector('.image-cat').innerHTML;
 
-                // Créez un tableau de toutes les photos du groupe
+                // Crée un tableau de toutes les photos du groupe
                 const photos = [];
                 const photoItems = document.querySelectorAll('.photo-thumbnail');
                 photoItems.forEach(function (item) {
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 });
 
-                // Trouvez l'index de la photo actuelle
+                // Trouve l'index de la photo actuelle
                 const currentPhotoIndex = photos.findIndex(function (photo) {
                     return photo.imageSource === imageSource;
                 });
@@ -62,12 +62,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function remplirRef (imageSource, photoRef, photoCat, photos, currentPhotoIndex) {
-        // Récupérer les éléments à remplir automatiquement
+        // Récupére les éléments à remplir automatiquement
         const lightboxImage = document.getElementById('lightboxImage');
         const lightboxReference = document.querySelector('.lightbox__reference');
         const lightboxCategorie = document.querySelector('.lightbox__categorie');
 
-        // Remplir les éléments de la lightbox avec les données de la photo actuelle
+        // Rempli les éléments de la lightbox avec les données de la photo actuelle
         lightboxImage.src = imageSource;
         lightboxReference.textContent = photoRef;
         lightboxCategorie.textContent = photoCat;
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
         iconChevron.classList.toggle('rotate');
     }
 
-    // Ajoutez des gestionnaires d'événements pour chaque élément .select_categories
+    // Ajoute des gestionnaires d'événements pour chaque élément .select_categories
     var categoriesDiv = document.querySelector('.select_categories');
     categoriesDiv.addEventListener('click', function () {
         toggleOptions(categoriesDiv);

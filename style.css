@@ -1,4 +1,15 @@
 @charset "UTF-8";
+/*
+ Theme Name:  Nathalie Mota
+ Theme URI: https://www.motaphoto.com
+ Author: Nathalie Mota
+ Author URI: https://www.motaphoto.com
+ Description: Thème personnalisé de photographie event
+ Version: 0.1
+ */
+/*----------------------------------------------------------------------- 
+# Base
+-----------------------------------------------------------------------*/
 @keyframes scale {
   from {
     transform: scale(1);
@@ -148,6 +159,9 @@ html {
   text-decoration: none;
 }
 
+/*----------------------------------------------------------------------- 
+# Gestion des fonts
+-----------------------------------------------------------------------*/
 @font-face {
   font-family: "Space Mono";
   src: url("fonts/SpaceMono-Regular.ttf") format("truetype");
@@ -167,6 +181,9 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+/*----------------------------------------------------------------------- 
+# Gestion des animations
+-----------------------------------------------------------------------*/
 @keyframes scale {
   from {
     transform: scale(1);
@@ -202,6 +219,9 @@ body {
     opacity: 1;
   }
 }
+/*----------------------------------------------------------------------- 
+# Gestion de la modale de contact
+-----------------------------------------------------------------------*/
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -285,6 +305,9 @@ body {
   display: none;
 }
 
+/*----------------------------------------------------------------------- 
+# Gestion de la page single
+-----------------------------------------------------------------------*/
 .article-wrapper {
   display: flex;
   flex-direction: column;
@@ -423,6 +446,9 @@ body {
   justify-content: space-between;
 }
 
+/*----------------------------------------------------------------------- 
+# Gestion de l'index
+-----------------------------------------------------------------------*/
 .hero-header-random {
   max-width: 1440px;
   position: relative;
@@ -471,6 +497,9 @@ body {
   transition: 1s ease-in-out;
 }
 
+/*----------------------------------------------------------------------- 
+# Gestion des selecteurs
+-----------------------------------------------------------------------*/
 .selectors {
   display: flex;
   justify-content: space-between;
@@ -554,6 +583,12 @@ body {
   transform: rotate(180deg);
 }
 
+/*----------------------------------------------------------------------- 
+# Gestions des couleurs du site
+-----------------------------------------------------------------------*/
+/*----------------------------------------------------------------------- 
+# Gestion du block 'photo'
+-----------------------------------------------------------------------*/
 .photos_list {
   display: grid;
   grid-template-columns: 49% 49%;
@@ -664,6 +699,9 @@ body {
   justify-content: flex-end;
 }
 
+/*----------------------------------------------------------------------- 
+# Gestion de la lightbox
+-----------------------------------------------------------------------*/
 .lightbox {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -759,6 +797,9 @@ body {
   color: white;
 }
 
+/*----------------------------------------------------------------------- 
+# Gestion du responsive design
+-----------------------------------------------------------------------*/
 /****** Media queries ***********/
 /* Version tablette */
 @media screen and (max-width: 768px) {

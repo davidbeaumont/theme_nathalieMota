@@ -1,13 +1,13 @@
 /* GESTION DE LA MODALE DE CONTACT */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Récupérer la modale
+    // Récupère la modale
     const modal = document.getElementById('myModal');
 
-    // Récupérer les boutons qui ouvrent la modale
+    // Récupère les boutons qui ouvrent la modale
     const btns = document.querySelectorAll(".myBtn");
 
-    // Récupérer l'élément <span> qui ferme la modale
+    // Récupère l'élément <span> qui ferme la modale
     const span = document.getElementsByClassName("close")[0];
 
     // Fonction pour ouvrir la modale
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.style.display = "none";
     }
 
-    // Ajouter des écouteurs d'événements de clic à chaque bouton
+    // Ajoute des écouteurs d'événements de clic à chaque bouton
     btns.forEach(function(btn) {
         btn.addEventListener('click', function(event) {
             event.preventDefault(); // Empêche la navigation par défaut si le lien est un lien hypertexte
@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
 /* GESTION DE LA MINIATURE DANS SINGLE_PHOTO */
 
 $(document).ready(function() {
-    // Cacher toutes les miniatures lors du chargement de la page
+    // Cache toutes les miniatures lors du chargement de la page
     $('.prev-thumbnail, .next-thumbnail').hide();
 
-    // Gérer l'affichage des miniatures au survol
+    // Gére l'affichage des miniatures au survol
     $('.prev-nav').hover(function() {
         $('.prev-thumbnail').show();
     }, function() {
